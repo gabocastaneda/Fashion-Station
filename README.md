@@ -1,53 +1,26 @@
-# Next.js & NextUI Template
+# Fahion Station
+Fashion Station es una aplicación web que ofrece una interfaz moderna y elegante para explorar tendencias de moda y productos relacionados. Esta aplicación está desarrollada con Next.js para el front-end, con un diseño optimizado y responsive. Actualmente, la aplicación se centra únicamente en la capa de presentación, y no incluye funcionalidad backend ni bases de datos.
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+## Tecnologías y Librerías Utilizadas
+ - Next.js: Framework para React que permite la creación de aplicaciones web con renderizado del lado del servidor y una gran flexibilidad en la estructura del proyecto.
+ - NextUI: Biblioteca de componentes para React que proporciona elementos visuales altamente personalizables y listos para usar.
+ - Shadcn: Colección de componentes estéticamente agradables que permite crear interfaces consistentes y accesibles.
+ - Acertenity: Librería adicional de componentes y estilos que aporta funcionalidad y flexibilidad al diseño de la aplicación
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+## Instalación
+**1. Clona el repositorio**
 
-## Technologies Used
+````
+    git clone
+    cd     
+````
+**2. Instala las dependencias**
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+````
+    npm install
+````
+**3. Inicializa el proyecto en modo desarrollo**
 
-## How to Use
-
-### Use the template with create-next-app
-
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+````
+    npm run dev     
+````
