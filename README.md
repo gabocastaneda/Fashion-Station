@@ -11,8 +11,8 @@ Fashion Station es una aplicación web que ofrece una interfaz moderna y elegant
 **1. Clona el repositorio**
 
 ````
-    git clone
-    cd     
+    git clone https://github.com/gabocastaneda/Fashion-Station.git
+    cd
 ````
 **2. Instala las dependencias**
 
