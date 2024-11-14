@@ -22,7 +22,7 @@ export function TypewriterEffectSmoothDemo() {
       className: "text-purple-500 dark:text-purple-500",
     },
     {
-      text: "Studio.",
+      text: "Station.",
       className: "text-purple-500 dark:text-purple-500",
     },
   ];
