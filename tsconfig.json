@@ -5,6 +5,8 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "typeRoots": ["./node_modules/@types", "./@types"],
+    "types": ["node", "react", "react-dom"],
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -28,7 +30,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/footer.tsx"
+    "components/footer.tsx",
+    "app/users/[userEmail]/new/AppNew.js"
   ],
   "exclude": ["node_modules"]
 }

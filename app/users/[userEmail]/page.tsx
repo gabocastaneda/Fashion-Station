@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 import CardDemo from "@/components/layouts/CardDemo";
 import { Button } from "@nextui-org/button";
-import { Link } from "lucide-react";
 
 export default function UserPage({ params }: any) {
   const email = decodeURIComponent(params.userEmail);
   const emailUrl = params.userEmail;
+  const router = useRouter();
 
   return (
     <section>
@@ -19,9 +20,7 @@ export default function UserPage({ params }: any) {
         <Button
           color="secondary"
           variant="flat"
-          onClick={() => {
-            console.log("New");
-          }}
+          onClick={() => router.push(`/users/${email}/new`)}
         >
           Crear nuevo diseño
         </Button>
