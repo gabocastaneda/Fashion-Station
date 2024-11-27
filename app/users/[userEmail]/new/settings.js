@@ -7,7 +7,7 @@ function Settings({ canvas }) {
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
   const [diameter, setDiameter] = useState("");
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState("#5d6469");
   const [strokeWidth, setStrokeWidth] = useState(0.5); // Hacer la línea más delgada por defecto
   const [fontSize, setFontSize] = useState(16); // Font size for text objects
   const [lineLength, setLineLength] = useState(""); // Length of the line
@@ -72,7 +72,7 @@ function Settings({ canvas }) {
         Math.round(
           Math.sqrt(
             Math.pow(object.x2 - object.x1, 2) +
-              Math.pow(object.y2 - object.y1, 2)
+            Math.pow(object.y2 - object.y1, 2)
           )
         )
       );
@@ -182,7 +182,7 @@ function Settings({ canvas }) {
   };
 
   return (
-    <div className="Settings darkmode">
+    <div className="Settings">
       {selectedObject && selectedObject.type !== "image" && (
         <>
           {selectedObject.type === "rect" && (
@@ -230,17 +230,10 @@ function Settings({ canvas }) {
                 value={lineLength || ""}
                 onChange={handleLineLengthChange}
               />
-              {/* Deshabilitar la opción de editar el grosor de la línea */}
-              <input
-                label="Stroke Width"
-                type="number"
-                value={strokeWidth || ""}
-                disabled
-              />
             </>
           )}
           {selectedObject.type === "text" ||
-          selectedObject.type === "textbox" ? (
+            selectedObject.type === "textbox" ? (
             <>
               <input
                 label="Font Size"

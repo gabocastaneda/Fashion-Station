@@ -68,7 +68,7 @@ body {
   gap: 8px;
   display: flex;
   flex-direction: column;
-  background-color: var(--background-neutral-container);
+  background-color: #a1a1aa;
   padding: 24px 8px;
   border-radius: 4px;
   text-align: left;

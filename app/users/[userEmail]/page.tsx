@@ -1,14 +1,32 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import CardDemo from "@/components/layouts/CardDemo";
 import { Button } from "@nextui-org/button";
 
 export default function UserPage({ params }: any) {
-  const email = decodeURIComponent(params.userEmail);
-  const emailUrl = params.userEmail;
+  const [email, setEmail] = useState<string | null>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    // Wait for params to resolve and unwrap it
+    const fetchParams = async () => {
+      if (params && params.userEmail) {
+        const decodedEmail = decodeURIComponent(params.userEmail);
+        setEmail(decodedEmail);
+      }
+    };
+
+    fetchParams();
+  }, [params]);
+
+  // If `email` is not yet set, show loading message
+  if (!email) {
+    return <div>Loading...</div>;
+  }
+
+  const emailUrl = params.userEmail; // Still can access the raw value if necessary
 
   return (
     <section>
@@ -40,7 +58,7 @@ export default function UserPage({ params }: any) {
             console.log("Import");
           }}
         >
-          Impotar un archivo externo
+          Importar un archivo externo
         </Button>
       </div>
       <p className="my-5">Diseños recientemente vistos</p>

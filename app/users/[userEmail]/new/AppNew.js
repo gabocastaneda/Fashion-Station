@@ -4,6 +4,15 @@ import * as fabric from "fabric";
 import "./Styles.css";
 import { handleObjectMoving, clearGuidelines } from "./snappingHelpers";
 import Settings from "./settings";
+import { IconButton } from "@mui/material";
+import ChangeHistoryIcon from '@mui/icons-material/ChangeHistory';
+import CropSquareIcon from '@mui/icons-material/CropSquare';
+import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
+import ImageIcon from '@mui/icons-material/Image';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import RemoveIcon from '@mui/icons-material/Remove';
+import FormatShapesIcon from '@mui/icons-material/FormatShapes';
 
 export default function AppNew() {
   const canvasRef = useRef(null);
@@ -14,7 +23,7 @@ export default function AppNew() {
   useEffect(() => {
     if (canvasRef.current) {
       const initCanvas = new fabric.Canvas(canvasRef.current, {
-        width: window.innerWidth * 0.8,
+        width: window.innerWidth * 0.9,
         height: window.innerHeight,
       });
 
@@ -188,30 +197,45 @@ export default function AppNew() {
     }
   };
 
+  const downloadCanvas = () => {
+    if (canvas) {
+      const dataURL = canvas.toDataURL({ format: "png" }); // Obtiene la imagen en formato PNG
+      const link = document.createElement("a"); // Crea un enlace
+      link.href = dataURL; // Asigna el contenido de la imagen al enlace
+      link.download = "canvas_image.png"; // Nombre del archivo que se descargará
+      link.click(); // Dispara la descarga
+    } else {
+      console.error("Canvas no está inicializado.");
+    }
+  };
+
   return (
     <div className="AppNew">
       <div className="Toolbar darkmode">
-        <button onClick={addRectangle} variant="ghost" size="medium">
-          Cuadrado
-        </button>
-        <button onClick={addCircle} variant="ghost" size="medium">
-          Círculo
-        </button>
-        <button onClick={addTriangle} variant="ghost" size="medium">
-          Triángulo
-        </button>
-        <button onClick={addLine} variant="ghost" size="medium">
-          Línea
-        </button>
-        <button onClick={addText} variant="ghost" size="medium">
-          Texto
-        </button>
-
-        <button onClick={deleteSelectedObject} variant="ghost" size="medium">
-          Eliminar Objeto
-        </button>
-
-        <button onClick={triggerFileInputClick}>Agregar Imagen</button>
+        <IconButton onClick={addRectangle}>
+          <CropSquareIcon style={{ fontSize: 30 }} />
+        </IconButton>
+        <IconButton onClick={addCircle}>
+          <PanoramaFishEyeIcon style={{ fontSize: 30 }} />
+        </IconButton>
+        <IconButton onClick={addTriangle}>
+          <ChangeHistoryIcon style={{ fontSize: 30 }} />
+        </IconButton>
+        <IconButton onClick={addLine}>
+          <RemoveIcon style={{ fontSize: 30 }} />
+        </IconButton>
+        <IconButton onClick={addText}>
+          <FormatShapesIcon style={{ fontSize: 30 }} />
+        </IconButton>
+        <IconButton onClick={deleteSelectedObject}>
+          <DeleteOutlineIcon style={{ fontSize: 30 }} />
+        </IconButton>
+        <IconButton onClick={triggerFileInputClick}>
+          <ImageIcon style={{ fontSize: 30 }} />
+        </IconButton>
+        <IconButton onClick={downloadCanvas}>
+          <ArrowCircleDownIcon style={{ fontSize: 30 }} />
+        </IconButton>
         <input
           ref={fileInputRef}
           type="file"
