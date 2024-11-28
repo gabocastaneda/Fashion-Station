@@ -284,6 +284,72 @@ export default function AppNew() {
     }
   };
 
+  const loadCanvas = async () => {
+    try {
+      const response = await fetch('/load-canvas');
+      const data = await response.json();
+
+      if (data.objects) {
+        data.objects.forEach((objData) => {
+          switch (objData.type) {
+            case "rect":
+              const rect = new fabric.Rect({
+                left: objData.left,
+                top: objData.top,
+                width: objData.width,
+                height: objData.height,
+                fill: objData.fill,
+              });
+              canvas.add(rect);
+              break;
+            case "circle":
+              const circle = new fabric.Circle({
+                left: objData.left,
+                top: objData.top,
+                radius: objData.radius,
+                fill: objData.fill,
+              });
+              canvas.add(circle);
+              break;
+            case "line":
+              const line = new fabric.Line([objData.x1, objData.y1, objData.x2, objData.y2], {
+                stroke: objData.stroke,
+                strokeWidth: 5,
+              });
+              canvas.add(line);
+              break;
+            case "text":
+              const text = new fabric.Textbox(objData.text, {
+                left: objData.left,
+                top: objData.top,
+                fontSize: objData.fontSize,
+                fill: objData.fill,
+                width: 200,
+              });
+              canvas.add(text);
+              break;
+            case "image":
+              fabric.Image.fromURL(objData.src, (img) => {
+                img.set({
+                  left: objData.left,
+                  top: objData.top,
+                  scaleX: objData.scaleX,
+                  scaleY: objData.scaleY,
+                });
+                canvas.add(img);
+              });
+              break;
+            default:
+              break;
+          }
+        });
+        canvas.renderAll();
+      }
+    } catch (error) {
+      console.error("Error al cargar el canvas:", error);
+    }
+  };
+
 
   return (
     <div className="AppNew">

@@ -1,0 +1,79 @@
+.button {
+  width: max-content;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.AppNew {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  background-color: white; /* Fondo blanco para el contenedor */
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura */
+}
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Color de fondo sólido para evitar ver lo que está detrás */
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  z-index: 2;
+  display: block;
+  position: relative; /* Asegura que el canvas esté bien posicionado */
+}
+
+.lower-canvas {
+  position: initial !important;
+}
+
+.Toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+  padding: 8px 8px;
+  border-radius: 4px;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+  z-index: 3; /* Asegura que la barra de herramientas esté encima del canvas */
+}
+
+.Toolbar:empty {
+  display: none;
+}
+
+.Settings {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  background-color: #a1a1aa;
+  padding: 24px 8px;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.Settings:empty {
+  padding: 0; /* Si no hay contenido, elimina el padding */
+}

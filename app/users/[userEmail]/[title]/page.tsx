@@ -1,10 +1,10 @@
 import React from "react";
+import AppNew from "./AppNew";
 
-export default function page(params: any) {
-  const prenda = decodeURIComponent(params.params.title);
+export default function page() {
   return (
-    <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-      {prenda}
-    </h3>
+    <>
+      <AppNew />
+    </>
   );
 }
