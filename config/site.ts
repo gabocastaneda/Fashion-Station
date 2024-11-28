@@ -12,10 +12,10 @@ export const siteConfig = {
       label: "Proyectos",
       href: "/projects",
     },
-    {
-      label: "Configuración",
-      href: "/settings",
-    },
+    // {
+    //   label: "Configuración",
+    //   href: "/settings",
+    // },
   ],
   navMenuItems: [
     {

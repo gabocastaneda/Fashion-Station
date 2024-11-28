@@ -26,7 +26,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react"; // Importamos useEffect y useState
 
 const FormSchema = z.object({
-  type: z.enum(["playera", "pantalon", "hoddie"], {
+  type: z.enum(["playera", "pantalon", "sudadera", "chaqueta", "vestido"], {
     required_error: "Necesitas seleccionar una prenda.",
   }),
 });
@@ -102,9 +102,21 @@ export function AlertDialogDemo(email: any) {
                       </FormItem>
                       <FormItem className="flex items-center space-x-3 space-y-0">
                         <FormControl>
-                          <RadioGroupItem value="hoddie" />
+                          <RadioGroupItem value="sudadera" />
                         </FormControl>
-                        <FormLabel className="font-normal">Hoddie</FormLabel>
+                        <FormLabel className="font-normal">Sudadera</FormLabel>
+                      </FormItem>
+                      <FormItem className="flex items-center space-x-3 space-y-0">
+                        <FormControl>
+                          <RadioGroupItem value="chaqueta" />
+                        </FormControl>
+                        <FormLabel className="font-normal">Chaqueta</FormLabel>
+                      </FormItem>
+                      <FormItem className="flex items-center space-x-3 space-y-0">
+                        <FormControl>
+                          <RadioGroupItem value="vestido" />
+                        </FormControl>
+                        <FormLabel className="font-normal">Vestido</FormLabel>
                       </FormItem>
                     </RadioGroup>
                   </FormControl>
